@@ -593,7 +593,7 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; <span id="current-year">2024</span> Prasiddh Naik. All rights reserved.</p>
-                <p class="footer-quote">
+                <p class="footer-quote" id="inspirational-quote">
                     "The only way to do great work is to love what you do." - Steve Jobs
                 </p>
             </div>
@@ -1514,6 +1514,58 @@
           }
         });
       });
+    </script>
+    
+    <!-- Dynamic Quote System -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quotes = [
+                '"The only way to do great work is to love what you do." - Steve Jobs',
+                '"Innovation distinguishes between a leader and a follower." - Steve Jobs',
+                '"Code is like humor. When you have to explain it, it\'s bad." - Cory House',
+                '"First, solve the problem. Then, write the code." - John Johnson',
+                '"Experience is the name everyone gives to their mistakes." - Oscar Wilde',
+                '"In order to be irreplaceable, one must always be different." - Coco Chanel',
+                '"Java is to JavaScript what car is to Carpet." - Chris Heilmann',
+                '"Knowledge is power." - Francis Bacon',
+                '"Learning never exhausts the mind." - Leonardo da Vinci',
+                '"The best time to plant a tree was 20 years ago. The second best time is now." - Chinese Proverb',
+                '"Your limitation—it\'s only your imagination."',
+                '"Push yourself, because no one else is going to do it for you."',
+                '"Great things never come from comfort zones."',
+                '"Dream it. Wish it. Do it."',
+                '"Success doesn\'t just find you. You have to go out and get it."',
+                '"The harder you work for something, the greater you\'ll feel when you achieve it."',
+                '"Don\'t stop when you\'re tired. Stop when you\'re done."',
+                '"Wake up with determination. Go to bed with satisfaction."',
+                '"Do something today that your future self will thank you for."',
+                '"Little things make big days."',
+                '"It\'s going to be hard, but hard does not mean impossible."',
+                '"Don\'t wait for opportunity. Create it."',
+                '"Sometimes we\'re tested not to show our weaknesses, but to discover our strengths."',
+                '"The key to success is to focus on goals, not obstacles."',
+                '"Dream bigger. Do bigger."',
+                '"Talk is cheap. Show me the code." - Linus Torvalds',
+                '"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson',
+                '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." - Martin Fowler',
+                '"The most important property of a program is whether it accomplishes the intention of its user." - C.A.R. Hoare',
+                '"Debugging is twice as hard as writing the code in the first place." - Brian Kernighan',
+                '"Simplicity is the ultimate sophistication." - Leonardo da Vinci',
+                '"Make it work, make it right, make it fast." - Kent Beck',
+                '"The best error message is the one that never shows up." - Thomas Fuchs',
+                '"Code never lies, comments sometimes do." - Ron Jeffries',
+                '"Programming isn\'t about what you know; it\'s about what you can figure out." - Chris Pine'
+            ];
+            
+            // Select a random quote
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            // Update the quote element
+            const quoteElement = document.getElementById('inspirational-quote');
+            if (quoteElement) {
+                quoteElement.textContent = randomQuote;
+            }
+        });
     </script>
 </body>
 </html>

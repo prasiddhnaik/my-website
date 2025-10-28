@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prasiddh Naik - Portfolio</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Prasiddh Naik - Portfolio">
+    <meta property="og:description" content="Interactive portfolio, projects, and a Warhammer 40K tactical game by a young developer.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prasiddh.site/">
+    <meta property="og:image" content="https://prasiddh.site/channels4_profile.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prasiddh Naik - Portfolio">
+    <meta name="twitter:description" content="Interactive portfolio, projects, and a Warhammer 40K tactical game by a young developer.">
+    <meta name="twitter:image" content="https://prasiddh.site/channels4_profile.png">
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Prasiddh Naik",
+      "url": "https://prasiddh.site/",
+      "sameAs": [
+        "https://github.com/PrasiddhNaik",
+        "https://www.youtube.com/@prasiddhnaik2332",
+        "https://x.com/PrasiddhNaik"
+      ],
+      "jobTitle": "Student Developer"
+    }
+    </script>
     <link rel="icon" href="channels4_profile.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,6 +137,7 @@
                 <span class="name">Prasiddh Naik</span>
             </div>
             <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" aria-pressed="true">🔊</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle light/dark">🌙</button>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link interactive-element">Home</a></li>
                 <li><a href="#about" class="nav-link interactive-element">About</a></li>
@@ -134,7 +161,7 @@
         </div>
         <div class="hero-content" id="real-hero-content">
             <h1 class="hero-title">
-                <span class="greeting" style="color: var(--primary-color) !important;" data-animate="fadeInUp" data-animate-delay="0">Hi, I'm</span>
+                <span class="greeting" style="color: var(--primary-color) !important;" data-animate="fadeInUp" data-animate-delay="0">Hi, I'm <span id="daypart-greeting"></span></span>
                 <span class="name" style="color: var(--primary-color) !important; -webkit-text-fill-color: var(--primary-color) !important; background: none;" data-animate="fadeInUp" data-animate-delay="120">Prasiddh Naik</span>
                 <span class="title" style="color: var(--primary-color) !important;" data-animate="fadeInUp" data-animate-delay="240">Student • Coder • Gamer</span>
             </h1>
@@ -596,6 +623,7 @@
                 <p class="footer-quote" id="inspirational-quote">
                     "The only way to do great work is to love what you do." - Steve Jobs
                 </p>
+                <p id="tech-tip" class="footer-tip" aria-live="polite"></p>
             </div>
         </div>
     </footer>
@@ -1575,5 +1603,6 @@
             }
         });
     </script>
+    <button id="back-to-top" aria-label="Back to top" hidden>↑</button>
 </body>
 </html>

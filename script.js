@@ -9,7 +9,142 @@ let todoIdCounter = 1;
 // Initialize the website when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeWebsite();
+    try { initDaypartGreeting(); } catch(e) { console.debug('daypart greeting skipped', e); }
+    try { initTechTip(); } catch(e) { console.debug('tech tip skipped', e); }
+    try { initBackToTop(); } catch(e) { console.debug('back to top skipped', e); }
+    try { initAchievementCounters(); } catch(e) { console.debug('counters skipped', e); }
+    try { initThemeToggle(); } catch(e) { console.debug('theme toggle skipped', e); }
+    try { initRevealAnimations(); } catch(e) { console.debug('reveal animations skipped', e); }
 });
+
+// 1) Time-based greeting
+function initDaypartGreeting() {
+    const el = document.getElementById('daypart-greeting');
+    if (!el) return;
+    const hour = new Date().getHours();
+    let part = 'there,'; // neutral fallback
+    if (hour >= 5 && hour < 12) part = 'good morning,';
+    else if (hour >= 12 && hour < 17) part = 'good afternoon,';
+    else if (hour >= 17 && hour < 22) part = 'good evening,';
+    else part = 'welcome,';
+    el.textContent = ' ' + part;
+}
+
+// 2) Tech Tip of the visit
+function initTechTip() {
+    const tipEl = document.getElementById('tech-tip');
+    if (!tipEl) return;
+    const TIPS = [
+        'Prefer early returns to reduce nesting.',
+        'Name variables for intent, not type.',
+        'Break long functions into pure helpers.',
+        'Write code for readers first, machines second.',
+        'Avoid deep nesting; use guard clauses.',
+        'Handle errors explicitly; don\'t swallow them.',
+        'Cache DOM queries when used repeatedly.',
+        'Use IntersectionObserver instead of scroll polling.',
+        'Debounce or throttle frequent event handlers.',
+        'Measure before optimizing performance.',
+        'Keep functions small and single-purpose.',
+        'Prefer CSS transitions over JS where possible.'
+    ];
+    tipEl.textContent = 'Tech tip: ' + TIPS[Math.floor(Math.random() * TIPS.length)];
+}
+
+// 3) Back to top
+function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    function toggle() {
+        if (window.scrollY > 600) btn.hidden = false; else btn.hidden = true;
+    }
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// 4) Achievement counters
+function initAchievementCounters() {
+    const container = document.querySelector('.about-stats');
+    if (!container) return;
+    const items = container.querySelectorAll('.stat-item .stat-number');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const alreadyRun = new WeakSet();
+    function parseTarget(text) {
+        if (text.includes('∞')) return Infinity;
+        const num = parseInt(String(text).replace(/[^0-9]/g, ''), 10);
+        return isNaN(num) ? 0 : num;
+    }
+    function animate(el, target) {
+        if (prefersReduced || target === Infinity) return; // avoid anim on infinity
+        const duration = 1200;
+        const start = performance.now();
+        const from = 0;
+        function frame(now) {
+            const t = Math.min(1, (now - start) / duration);
+            const val = Math.floor(from + t * (target - from));
+            el.textContent = String(val);
+            if (t < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                if (alreadyRun.has(el)) return;
+                alreadyRun.add(el);
+                const target = parseTarget(el.textContent);
+                animate(el, target);
+                obs.unobserve(el);
+            }
+        });
+    }, { threshold: 0.3 });
+    items.forEach(numEl => observer.observe(numEl));
+}
+
+// 6) Theme toggle with persistence
+function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    const initial = saved || (prefersDark ? 'dark' : 'light');
+    applyTheme(initial);
+    btn.setAttribute('aria-pressed', String(initial === 'dark'));
+    btn.textContent = initial === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', () => {
+        const next = (root.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+        applyTheme(next);
+        btn.setAttribute('aria-pressed', String(next === 'dark'));
+        btn.textContent = next === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem('theme', next);
+    });
+    function applyTheme(mode) {
+        if (mode === 'dark') root.setAttribute('data-theme', 'dark');
+        else root.removeAttribute('data-theme');
+    }
+}
+
+// 7) Reveal sections on view
+function initRevealAnimations() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    const targets = document.querySelectorAll('.section-title, .project-card, .skill-card, .achievement-card, .interest-card');
+    if (!targets.length) return;
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    targets.forEach(el => observer.observe(el));
+}
 
 // Fade out and remove the loader once everything has loaded
 window.addEventListener('load', () => {

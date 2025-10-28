@@ -1,0 +1,11 @@
+{
+  "name": "project-web",
+  "version": "1.0.0",
+  "description": "1) Built-in backend with SQLite    - Run: `cd backend && npm i && ADMIN_TOKEN=change-me npm run start`    - Frontend sends analytics to `/api/events` automatically when backend is up",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

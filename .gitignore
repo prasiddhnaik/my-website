@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# Node
+**/node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environments
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+**/.venv/
+**/venv/
+**/ENV/
+*.egg-info/
+
+# Builds & Dist
+build/
+dist/
+**/build/
+**/dist/
+*.app
+
+# Game build/cache artifacts
+warhammer40k_game2/build/
+warhammer40k_game2/dist/
+warhammer40k_game2/build/web-cache/
+
+# SQLite databases
+*.sqlite
+*.sqlite-*
+data.view.sqlite
+
+# Archives & packages
+*.zip
+*.apk
+
+# Misc
+website-screenshot.png
+assets/warhammer40k_game.zip

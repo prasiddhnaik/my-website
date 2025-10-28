@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prasiddh Naik - Portfolio</title>
+    <link rel="icon" href="channels4_profile.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hackmit-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
+
+    <style>
+        /* Initial states for animations */
+        .hero-title .greeting,
+        .hero-title .name,
+        .hero-title .title,
+        .hero-description,
+        .hero-buttons .btn,
+        .skill-card,
+        .project-card,
+        .achievement-card,
+        .interest-card,
+        .section-title,
+        .navbar {
+            opacity: 0;
+        }
+        
+        .skill-card {
+            transform: translateY(50px);
+        }
+        
+        .project-card {
+            transform: scale(0.8);
+        }
+        
+        .achievement-card {
+            transform: translateX(-100px);
+        }
+        
+        .interest-card {
+            transform: rotate(-10deg) scale(0.5);
+        }
+        
+        .hero-title .greeting,
+        .hero-title .name,
+        .hero-title .title {
+            transform: translateY(50px);
+        }
+        
+        .hero-description,
+        .hero-buttons .btn {
+            transform: translateY(30px);
+        }
+        
+        .section-title {
+            transform: translateY(30px);
+        }
+        
+        .navbar {
+            transform: translateY(-100px);
+        }
+        
+        /* Smooth transitions for hover effects */
+        .btn, .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Button scale-up helper for hover */
+        .scale-up:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        /* Shimmer skeleton loader */
+        .shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmerMove 1.5s infinite;
+        }
+        @keyframes shimmerMove {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        /* Respect users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .animate__animated, .btn, .project-card, .hero-title span {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body data-birthdate="2013-04-03">
+    <div id="page-loader" class="page-loader" aria-live="polite" aria-busy="true" role="status">
+        <div class="bars-loader" aria-hidden="true">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar nav-modern">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="name">Prasiddh Naik</span>
+            </div>
+            <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" aria-pressed="true">🔊</button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link interactive-element">Home</a></li>
+                <li><a href="#about" class="nav-link interactive-element">About</a></li>
+                <li><a href="#skills" class="nav-link interactive-element">Skills</a></li>
+                <li><a href="#projects" class="nav-link interactive-element">Projects</a></li>
+                <li><a href="#working-on" class="nav-link interactive-element">Working On</a></li>
+                <li><a href="#achievements" class="nav-link interactive-element">Achievements</a></li>
+                <li><a href="#contact" class="nav-link interactive-element">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero hero-gradient">
+        <div class="hero-background">
+        </div>
+        <div class="hero-content" id="real-hero-content">
+            <h1 class="hero-title">
+                <span class="greeting" style="color: var(--primary-color) !important;" data-animate="fadeInUp" data-animate-delay="0">Hi, I'm</span>
+                <span class="name" style="color: var(--primary-color) !important; -webkit-text-fill-color: var(--primary-color) !important; background: none;" data-animate="fadeInUp" data-animate-delay="120">Prasiddh Naik</span>
+                <span class="title" style="color: var(--primary-color) !important;" data-animate="fadeInUp" data-animate-delay="240">Student • Coder • Gamer</span>
+            </h1>
+            <p class="hero-description">
+                A <span class="age-number">12</span>-year-old passionate about technology, coding, and gaming.
+                Currently studying at People's High School in Class 7.
+            </p>
+            <div class="hero-buttons" data-animate="fadeInUp" data-animate-delay="360">
+                <a href="#projects" class="btn btn-hackmit hvr-grow" style="background: var(--primary-color) !important;">View My Work</a>
+                <a href="#about" class="btn btn-hackmit hvr-grow" style="background: var(--primary-color) !important;">Learn More</a>
+            </div>
+        </div>
+        <div id="loading-slate" class="loading-slate" aria-label="Loading..."></div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Hello! I'm Prasiddh, a curious and enthusiastic 12-year-old student 
+                        at People's High School. I discovered my passion for programming and 
+                        technology at an early age and have been constantly learning and 
+                        creating ever since.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me gaming, exploring new technologies, 
+                        or diving deep into the Warhammer 40K universe. I share my projects and 
+                        code on GitHub, where you can follow my coding journey. I believe that 
+                        learning never stops, and I'm always excited to take on new challenges. 
+                        Right now, I'm learning Rust.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number"><span class="age-number">12</span></div>
+                        <div class="stat-label">Years Old</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Current Class</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Bugs Fixed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Curiosity</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card glass-card float-animation">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="gradient-text">HTML & CSS</h3>
+                    <p>Creating responsive and visually appealing websites with modern HTML5 and CSS3.</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" data-level="85"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card glass-card float-animation">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="gradient-text">JavaScript</h3>
+                    <p>Adding interactivity and dynamic features to web applications.</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" data-level="80"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass-card float-animation">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="gradient-text">Python</h3>
+                    <p>Game development, automation, and problem-solving with Python.</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" data-level="90"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Game Development</h3>
+                    <p>Creating turn-based strategy games and interactive experiences.</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" data-level="75"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-rust"></i>
+                    </div>
+                    <h3>Rust (Learning)</h3>
+                    <p>Exploring systems programming, safety, and performance with Rust.</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" data-level="35"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="game">Games</button>
+                <button class="filter-btn" data-filter="app">Apps</button>
+            </div>
+            <div class="projects-grid grid-modern">
+                <div class="project-card card-modern interactive-element" data-category="game">
+                    <div class="project-image">
+                        <i class="fas fa-dragon project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 style="color: white;">Warhammer 40K Game</h3>
+                        <p>A turn-based strategy game set in the Warhammer 40K universe with tactical combat and engaging storyline.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pygame</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="assets/warhammer40k_game.zip" class="btn btn-small" download>
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                            <a href="warhammer-details.html" class="btn btn-small btn-secondary">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                             <a href="game-launcher.html" class="btn btn-small btn-primary">
+                                 <i class="fas fa-play"></i> Play Web Demo
+                             </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="project-card" data-category="app">
+                    <div class="project-image">
+                        <i class="fas fa-tasks project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Todo App</h3>
+                        <p>A clean and intuitive task management application with categories, priorities, and progress tracking.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-small" onclick="document.getElementById('todo-modal').style.display='flex'; document.body.style.overflow='hidden';">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="project-card" data-category="app">
+                    <div class="project-image">
+                        <i class="fas fa-calculator project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Math Helper</h3>
+                        <p>An educational tool that helps solve complex math problems with step-by-step explanations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Math.js</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-small" onclick="document.getElementById('math-modal').style.display='flex'; document.body.style.overflow='hidden';">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit Converter App Card -->
+                <div class="project-card" data-category="app">
+                    <div class="project-image">
+                        <i class="fas fa-ruler-combined project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Unit Converter</h3>
+                        <p>Convert lengths, weights, and temperatures instantly with a clean interface.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-small" onclick="document.getElementById('unit-modal').style.display='flex'; document.body.style.overflow='hidden';">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quadratic Solver App Card -->
+                <div class="project-card" data-category="app">
+                    <div class="project-image">
+                        <i class="fas fa-square-root-variable project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Quadratic Solver</h3>
+                        <p>Solve ax² + bx + c quickly. Shows discriminant and nature of roots.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Math</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-small" onclick="document.getElementById('quadratic-modal').style.display='flex'; document.body.style.overflow='hidden';">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Percentage Calculator App Card -->
+                <div class="project-card" data-category="app">
+                    <div class="project-image">
+                        <i class="fas fa-percent project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Percentage Calculator</h3>
+                        <p>Find percentages, percentage increase and decrease without mental gymnastics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-small" onclick="document.getElementById('percentage-modal').style.display='flex'; document.body.style.overflow='hidden';">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Working On Section -->
+    <section id="working-on" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Currently Working On</h2>
+            <!-- YouTube Channel Section -->
+            <div class="youtube-section">
+                <div class="youtube-flyer">
+                    <div class="youtube-header">
+                        <i class="fab fa-youtube"></i>
+                        <h3>My YouTube Channel</h3>
+                    </div>
+                    <div class="youtube-content">
+                        <div class="youtube-info">
+                            <h4>@prasiddhnaik2332</h4>
+                            <p>Follow my coding journey, project tutorials, and tech insights! Watch me build amazing projects, learn new technologies, and share my programming adventures.</p>
+                            <div class="youtube-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Coding Tutorials</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Project Walkthroughs</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Tech Tips & Tricks</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>Game Development</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="youtube-cta">
+                            <a href="https://www.youtube.com/@prasiddhnaik2332" target="_blank" class="btn btn-youtube">
+                                <i class="fab fa-youtube"></i>
+                                Subscribe Now
+                            </a>
+                            <p class="subscribe-text">Join the community and never miss an update!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>National Science Olympiad</h3>
+                        <p class="achievement-description">Gold Medal Winner</p>
+                        <p class="achievement-detail">
+                            Secured first place in the National Science Olympiad competition, 
+                            demonstrating excellence in scientific knowledge and problem-solving.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Responsive Web Design</h3>
+                        <p class="achievement-description">Certification</p>
+                        <p class="achievement-detail">
+                            Mastered HTML, CSS, Flexbox, and Grid to create responsive 
+                            and accessible web designs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>JavaScript Algorithms</h3>
+                        <p class="achievement-description">Certification</p>
+                        <p class="achievement-detail">
+                            Learned JavaScript fundamentals, algorithms, and data structures 
+                            for effective problem-solving.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Python Programming</h3>
+                        <p class="achievement-description">Legacy Certification</p>
+                        <p class="achievement-detail">
+                            Built a strong foundation in Python programming, including 
+                            data structures and file handling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="section">
+        <div class="container">
+            <h2 class="section-title">My Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                                            <h3>Gaming</h3>
+                        <p>Lore-heavy games with complexity and absurd twists</p>
+                </div>
+                
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                                            <h3>Coding</h3>
+                        <p>Vibe coding with structure to avoid collapse</p>
+                </div>
+                
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Technology</h3>
+                    <p>Staying updated with latest tech trends</p>
+                </div>
+                
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Halo</h3>
+                    <p>Master Chief's epic sci-fi adventures</p>
+                </div>
+                
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3>Warhammer 40K</h3>
+                    <p>The grim darkness of the far future</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>
+                        I'm always excited to connect with fellow tech enthusiasts, 
+                        gamers, and anyone interested in learning about technology!
+                    </p>
+                    <div class="social-links">
+                        <a href="https://x.com/PrasiddhNaik" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            <span>Follow me on X</span>
+                        </a>
+                        <a href="https://github.com/PrasiddhNaik" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>Check out my GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Contact form removed intentionally -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year">2024</span> Prasiddh Naik. All rights reserved.</p>
+                <p class="footer-quote">
+                    "The only way to do great work is to love what you do." - Steve Jobs
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Todo App Modal -->
+    <div id="todo-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-tasks"></i> Todo App</h2>
+                <button class="modal-close" onclick="document.getElementById('todo-modal').style.display='none'; document.body.style.overflow='';">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="todo-app">
+                    <div class="todo-input-section">
+                        <input type="text" id="todo-input" placeholder="Add a new task..." maxlength="100">
+                        <select id="todo-priority">
+                            <option value="low">Low Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                        <button id="add-todo-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Task
+                        </button>
+                    </div>
+                    
+                    <div class="todo-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                    
+                    <div class="todo-list-container">
+                        <ul id="todo-list" class="todo-list"></ul>
+                    </div>
+                    
+                    <div class="todo-stats">
+                        <span id="todo-count">0 tasks remaining</span>
+                        <button id="clear-completed" class="btn btn-small btn-secondary">
+                            Clear Completed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Math App Modal -->
+    <div id="math-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-calculator"></i> Math Helper</h2>
+                <button class="modal-close" onclick="document.getElementById('math-modal').style.display='none'; document.body.style.overflow='';">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="math-app">
+                    <div class="calculator">
+                        <div class="calculator-display">
+                            <div class="calculation-history" id="calc-history"></div>
+                            <input type="text" id="calc-display" readonly placeholder="0">
+                        </div>
+                        <div class="calculator-buttons">
+                            <button class="calc-btn clear" onclick="clearCalculator()">C</button>
+                            <button class="calc-btn" onclick="deleteLast()">⌫</button>
+                            <button class="calc-btn operator" onclick="appendToDisplay('/')">/</button>
+                            <button class="calc-btn operator" onclick="appendToDisplay('*')">×</button>
+                            
+                            <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
+                            <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
+                            <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
+                            <button class="calc-btn operator" onclick="appendToDisplay('-')">-</button>
+                            
+                            <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
+                            <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
+                            <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
+                            <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
+                            
+                            <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
+                            <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
+                            <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
+                            <button class="calc-btn equals" onclick="calculateResult()" rowspan="2">=</button>
+                            
+                            <button class="calc-btn zero" onclick="appendToDisplay('0')">0</button>
+                            <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unit Converter Modal -->
+    <div id="unit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-ruler-combined"></i> Unit Converter</h2>
+                <button class="modal-close" onclick="document.getElementById('unit-modal').style.display='none'; document.body.style.overflow='';">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tool-form">
+                    <div class="tool-row">
+                        <label for="unit-category">Category</label>
+                        <select id="unit-category">
+                            <option value="length">Length</option>
+                            <option value="weight">Weight</option>
+                            <option value="temperature">Temperature</option>
+                        </select>
+                    </div>
+                    <div class="tool-row">
+                        <input type="number" id="unit-input" placeholder="Enter value" step="any">
+                        <select id="unit-from"></select>
+                        <button class="btn btn-secondary btn-small" id="unit-swap">Swap</button>
+                        <select id="unit-to"></select>
+                    </div>
+                    <div class="tool-row">
+                        <div class="tool-output" id="unit-output">Result will appear here</div>
+                        <button class="btn btn-primary btn-small" id="unit-convert">Convert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quadratic Solver Modal -->
+    <div id="quadratic-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-square-root-variable"></i> Quadratic Solver</h2>
+                <button class="modal-close" onclick="document.getElementById('quadratic-modal').style.display='none'; document.body.style.overflow='';">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tool-form">
+                    <div class="tool-row">
+                        <input type="number" id="quad-a" placeholder="a" step="any">
+                        <input type="number" id="quad-b" placeholder="b" step="any">
+                        <input type="number" id="quad-c" placeholder="c" step="any">
+                        <button class="btn btn-primary btn-small" id="quad-solve">Solve</button>
+                    </div>
+                    <div class="tool-row">
+                        <div class="tool-output" id="quad-result">Enter a, b, c to solve ax² + bx + c = 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Percentage Calculator Modal -->
+    <div id="percentage-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-percent"></i> Percentage Calculator</h2>
+                <button class="modal-close" onclick="document.getElementById('percentage-modal').style.display='none'; document.body.style.overflow='';">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tool-form">
+                    <div class="tool-row">
+                        <input type="number" id="perc-number" placeholder="Number" step="any">
+                        <input type="number" id="perc-percent" placeholder="Percent %" step="any">
+                        <button class="btn btn-primary btn-small" id="perc-of">What is % of</button>
+                        <button class="btn btn-secondary btn-small" id="perc-inc">Increase</button>
+                        <button class="btn btn-secondary btn-small" id="perc-dec">Decrease</button>
+                    </div>
+                    <div class="tool-row">
+                        <div class="tool-output" id="perc-result">Results will appear here</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="project-modal-title">Project Details</h2>
+                <button class="modal-close" onclick="closeModal('project-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="project-modal-content">
+                    <!-- Project details will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="script.js"></script>
+    <script type="module">
+        // Optional free DB fallback: set these to enable Supabase capture when backend is offline
+        // window.__SUPABASE = { url: 'https://YOUR-PROJECT.supabase.co', anonKey: 'YOUR_ANON_KEY' };
+        // 3D background + particles for hero
+        const enable3D = false; // disabled: 2D floating logos instead
+        if (enable3D) {
+            window.USE_THREE_PARTICLES = true;
+            import('https://unpkg.com/three@0.160.0/build/three.module.js').then(THREE => {
+                const container = document.querySelector('.hero-background');
+                if (!container) return;
+
+                const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.domElement.style.position = 'absolute';
+                renderer.domElement.style.inset = '0';
+                renderer.domElement.style.zIndex = '2';
+                renderer.domElement.style.pointerEvents = 'none';
+                container.prepend(renderer.domElement);
+
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.set(0, 0, 22);
+
+                // Starfield background
+                const starGeometry = new THREE.BufferGeometry();
+                const starCount = 1000;
+                const starPositions = new Float32Array(starCount * 3);
+                for (let i = 0; i < starCount; i++) {
+                    const i3 = i * 3;
+                    starPositions[i3 + 0] = (Math.random() - 0.5) * 200;
+                    starPositions[i3 + 1] = (Math.random() - 0.5) * 120;
+                    starPositions[i3 + 2] = -Math.random() * 200 - 20;
+                }
+                starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+                const starMaterial = new THREE.PointsMaterial({ color: 0x66aaff, size: 0.6, sizeAttenuation: true, transparent: true, opacity: 0.45, blending: THREE.AdditiveBlending, depthWrite: false });
+                const stars = new THREE.Points(starGeometry, starMaterial);
+                scene.add(stars);
+
+                // Lights
+                const ambient = new THREE.AmbientLight(0x335577, 0.8);
+                scene.add(ambient);
+                const keyLight = new THREE.DirectionalLight(0x66aaff, 0.6);
+                keyLight.position.set(5, 10, 10);
+                scene.add(keyLight);
+
+                // 3D cubes field (instanced for performance)
+                const cubeCount = 120;
+                const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+                const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0x66aaff, emissive: 0x0a2a6a, metalness: 0.2, roughness: 0.6 });
+                const cubes = new THREE.InstancedMesh(cubeGeometry, cubeMaterial, cubeCount);
+                scene.add(cubes);
+
+                const tmpMatrix = new THREE.Matrix4();
+                const cubeBase = [];
+                const cubeRotSpeed = [];
+                const cubeFloatPhase = [];
+                for (let i = 0; i < cubeCount; i++) {
+                    const x = (Math.random() - 0.5) * 70;
+                    const y = (Math.random() - 0.5) * 35;
+                    const z = -10 - Math.random() * 90;
+                    const s = Math.random() * 0.9 + 0.4;
+                    cubeBase.push({ x, y, z, s });
+                    cubeRotSpeed.push({ x: Math.random() * 0.01 + 0.002, y: Math.random() * 0.01 + 0.002, z: Math.random() * 0.01 + 0.002 });
+                    cubeFloatPhase.push(Math.random() * Math.PI * 2);
+                    tmpMatrix.compose(new THREE.Vector3(x, y, z), new THREE.Quaternion(), new THREE.Vector3(s, s, s));
+                    cubes.setMatrixAt(i, tmpMatrix);
+                }
+
+                // Floating laptop icon (constructed from boxes)
+                function createLaptop() {
+                    const group = new THREE.Group();
+                    const baseMat = new THREE.MeshStandardMaterial({ color: 0x1e90ff, emissive: 0x0a2a6a, metalness: 0.3, roughness: 0.4 });
+                    const darkMat = new THREE.MeshStandardMaterial({ color: 0x0f1a2e, emissive: 0x000011, metalness: 0.1, roughness: 0.9 });
+                    const screen = new THREE.Mesh(new THREE.BoxGeometry(4.2, 2.6, 0.12), baseMat);
+                    screen.position.set(0, 0.9, 0);
+                    screen.rotation.x = -0.1;
+                    const bezel = new THREE.Mesh(new THREE.BoxGeometry(3.8, 2.2, 0.02), darkMat);
+                    bezel.position.set(0, 0.9, 0.07);
+                    const base = new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.2, 2.9), baseMat);
+                    base.position.set(0, -0.6, 1.1);
+                    base.rotation.x = 0.02;
+                    group.add(base, screen, bezel);
+                    return group;
+                }
+
+                // Floating desktop icon (monitor + stand + tower)
+                function createDesktop() {
+                    const group = new THREE.Group();
+                    const mat = new THREE.MeshStandardMaterial({ color: 0x66ccff, emissive: 0x0a2a6a, metalness: 0.25, roughness: 0.5 });
+                    const dark = new THREE.MeshStandardMaterial({ color: 0x0e1628, emissive: 0x000010, roughness: 0.9 });
+                    const monitor = new THREE.Mesh(new THREE.BoxGeometry(3.6, 2.2, 0.12), mat);
+                    monitor.position.set(0, 0.6, 0);
+                    const neck = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.8, 0.2), dark);
+                    neck.position.set(0, -0.2, 0);
+                    const basePlate = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.12, 0.9), dark);
+                    basePlate.position.set(0, -0.7, 0.2);
+                    const tower = new THREE.Mesh(new THREE.BoxGeometry(1.0, 2.6, 0.6), mat);
+                    tower.position.set(2.3, -0.2, 0.2);
+                    group.add(monitor, neck, basePlate, tower);
+                    return group;
+                }
+
+                const laptop = createLaptop();
+                const desktop = createDesktop();
+                laptop.position.set(-10, 2.5, -22);
+                desktop.position.set(10, -1.0, -26);
+                scene.add(laptop, desktop);
+
+                // Language icon tiles (canvas textures on planes)
+                function createLabelTexture(text, bg, fg) {
+                    const size = 256;
+                    const canvas = document.createElement('canvas');
+                    canvas.width = size; canvas.height = size;
+                    const ctx = canvas.getContext('2d');
+                    // Clear
+                    ctx.clearRect(0, 0, size, size);
+                    // Rounded rectangle
+                    const r = 40;
+                    ctx.fillStyle = bg;
+                    ctx.beginPath();
+                    ctx.moveTo(r, 0);
+                    ctx.lineTo(size - r, 0);
+                    ctx.quadraticCurveTo(size, 0, size, r);
+                    ctx.lineTo(size, size - r);
+                    ctx.quadraticCurveTo(size, size, size - r, size);
+                    ctx.lineTo(r, size);
+                    ctx.quadraticCurveTo(0, size, 0, size - r);
+                    ctx.lineTo(0, r);
+                    ctx.quadraticCurveTo(0, 0, r, 0);
+                    ctx.closePath();
+                    ctx.fill();
+                    // Text
+                    ctx.fillStyle = fg;
+                    ctx.font = 'bold 120px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.shadowColor = 'rgba(0,0,0,0.25)';
+                    ctx.shadowBlur = 10;
+                    ctx.fillText(text, size / 2, size / 2 + 6);
+                    const tex = new THREE.CanvasTexture(canvas);
+                    tex.anisotropy = 4;
+                    tex.needsUpdate = true;
+                    return tex;
+                }
+
+                function createIconPlane(text, bg, fg, scale) {
+                    const tex = createLabelTexture(text, bg, fg);
+                    const material = new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide, depthWrite: false });
+                    const geom = new THREE.PlaneGeometry(scale, scale);
+                    return new THREE.Mesh(geom, material);
+                }
+
+                const iconSpecs = [
+                    { t: 'JS',   bg: '#f7df1e', fg: '#000000', s: 2.2, pos: [-14,  1.5, -20] },
+                    { t: 'Py',   bg: '#3776AB', fg: '#ffd343', s: 2.2, pos: [ -7, -1.0, -24] },
+                    { t: 'HTML', bg: '#e34f26', fg: '#ffffff', s: 2.6, pos: [  0,  2.2, -28] },
+                    { t: 'CSS',  bg: '#1572B6', fg: '#ffffff', s: 2.6, pos: [  7, -0.5, -22] },
+                    { t: 'Rust', bg: '#000000', fg: '#ffffff', s: 2.6, pos: [ 14,  1.2, -26] },
+                    { t: 'C++',  bg: '#00599C', fg: '#ffffff', s: 2.4, pos: [  3, -2.0, -18] }
+                ];
+                const iconMeshes = [];
+                const iconPhases = [];
+                iconSpecs.forEach((spec) => {
+                    const m = createIconPlane(spec.t, spec.bg, spec.fg, spec.s);
+                    m.position.set(spec.pos[0], spec.pos[1], spec.pos[2]);
+                    m.userData.baseY = spec.pos[1];
+                    scene.add(m);
+                    iconMeshes.push(m);
+                    iconPhases.push(Math.random() * Math.PI * 2);
+                });
+
+                const mouse = { x: 0, y: 0 };
+                window.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    mouse.x = (e.clientX - rect.left) / rect.width - 0.5;
+                    mouse.y = (e.clientY - rect.top) / rect.height - 0.5;
+                });
+
+                let running = true;
+                document.addEventListener('visibilitychange', () => { running = document.visibilityState === 'visible'; });
+
+                function resize() {
+                    const w = container.clientWidth; const h = container.clientHeight;
+                    renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix();
+                }
+                window.addEventListener('resize', resize);
+
+                let t = 0;
+                function animate() {
+                    if (!running) { requestAnimationFrame(animate); return; }
+                    t += 0.003;
+                    stars.rotation.y += 0.0007;
+
+                    // Animate cubes
+                    for (let i = 0; i < cubeCount; i++) {
+                        const base = cubeBase[i];
+                        const rs = cubeRotSpeed[i];
+                        const phase = cubeFloatPhase[i];
+                        const y = base.y + Math.sin(t * 2 + phase) * 0.6;
+                        const rotX = t * rs.x + phase;
+                        const rotY = t * rs.y;
+                        const rotZ = t * rs.z;
+                        tmpMatrix.makeRotationFromEuler(new THREE.Euler(rotX, rotY, rotZ));
+                        tmpMatrix.setPosition(base.x, y, base.z);
+                        const scale = base.s;
+                        tmpMatrix.scale(new THREE.Vector3(scale, scale, scale));
+                        cubes.setMatrixAt(i, tmpMatrix);
+                    }
+                    cubes.instanceMatrix.needsUpdate = true;
+
+                    // Float icons
+                    laptop.rotation.y += 0.002;
+                    desktop.rotation.y -= 0.0018;
+                    laptop.position.y = 2.5 + Math.sin(t * 1.6) * 0.6;
+                    desktop.position.y = -1.0 + Math.sin(t * 1.3 + 1.2) * 0.5;
+
+                    // Parallax camera
+                    camera.position.x += ((mouse.x * 6) - camera.position.x) * 0.02;
+                    camera.position.y += ((-mouse.y * 3) - camera.position.y) * 0.02;
+                    camera.lookAt(0, 0, -10);
+
+                    // Bob and face icons to camera
+                    iconMeshes.forEach((m, idx) => {
+                        const phase = iconPhases[idx];
+                        m.position.y = m.userData.baseY + Math.sin(t * 1.4 + phase) * 0.4;
+                        m.lookAt(camera.position.x, camera.position.y, camera.position.z);
+                    });
+
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            }).catch(() => {});
+        }
+    </script>
+    <script>
+        // 2D floating language logos (always visible background)
+        document.addEventListener('DOMContentLoaded', function() {
+            const bg = document.querySelector('.hero-background');
+            if (!bg) return;
+
+            // ensure container exists once
+            let container = bg.querySelector('.logo-floating-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'logo-floating-container';
+                bg.appendChild(container);
+            }
+
+            // Material Icon Theme SVGs (from PKief/vscode-material-icon-theme)
+            const base = 'https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons';
+			const icons = [
+                { src: `${base}/javascript.svg`, alt: 'JavaScript', size: 'size-l' },
+                { src: `${base}/python.svg`, alt: 'Python', size: 'size-l' },
+                { src: `${base}/typescript.svg`, alt: 'TypeScript', size: 'size-m' },
+                { src: `${base}/java.svg`, alt: 'Java', size: 'size-l' },
+                { src: `${base}/go.svg`, alt: 'Go', size: 'size-l' },
+                { src: `${base}/php.svg`, alt: 'PHP', size: 'size-l' },
+                { src: `${base}/ruby.svg`, alt: 'Ruby', size: 'size-m' },
+                { src: `${base}/swift.svg`, alt: 'Swift', size: 'size-m' },
+                { src: `${base}/kotlin.svg`, alt: 'Kotlin', size: 'size-m' },
+                { src: `${base}/dart.svg`, alt: 'Dart', size: 'size-s' },
+                { src: `${base}/csharp.svg`, alt: 'C#', size: 'size-m' },
+                { src: `${base}/c.svg`, alt: 'C', size: 'size-m' },
+                { src: `${base}/cpp.svg`, alt: 'C++', size: 'size-m' },
+                { src: `${base}/scala.svg`, alt: 'Scala', size: 'size-s' },
+                { src: `${base}/lua.svg`, alt: 'Lua', size: 'size-s' },
+                { src: `${base}/haskell.svg`, alt: 'Haskell', size: 'size-s' },
+                { src: `${base}/clojure.svg`, alt: 'Clojure', size: 'size-s' },
+                { src: `${base}/elixir.svg`, alt: 'Elixir', size: 'size-s' },
+                { src: `${base}/erlang.svg`, alt: 'Erlang', size: 'size-s' },
+                { src: `${base}/ocaml.svg`, alt: 'OCaml', size: 'size-s' },
+                { src: `${base}/julia.svg`, alt: 'Julia', size: 'size-s' },
+                { src: `${base}/r.svg`, alt: 'R', size: 'size-s' },
+                { src: `${base}/perl.svg`, alt: 'Perl', size: 'size-s' },
+                { src: `${base}/bash.svg`, alt: 'Bash', size: 'size-s' },
+                { src: `${base}/powershell.svg`, alt: 'PowerShell', size: 'size-s' },
+                { src: `${base}/sql.svg`, alt: 'SQL', size: 'size-s' },
+                { src: `${base}/fortran.svg`, alt: 'Fortran', size: 'size-s' },
+                { src: `${base}/nim.svg`, alt: 'Nim', size: 'size-s' },
+                { src: `${base}/zig.svg`, alt: 'Zig', size: 'size-s' },
+                { src: `${base}/solidity.svg`, alt: 'Solidity', size: 'size-s' },
+                { src: `${base}/rust.svg`, alt: 'Rust', size: 'size-m' },
+                { src: `${base}/html.svg`, alt: 'HTML', size: 'size-m' },
+                { src: `${base}/css.svg`, alt: 'CSS', size: 'size-m' },
+                { src: `${base}/react.svg`, alt: 'React', size: 'size-m' },
+                { src: `${base}/git.svg`, alt: 'Git', size: 'size-s' },
+                { src: `${base}/nodejs.svg`, alt: 'Node.js', size: 'size-m' },
+                { src: `${base}/express.svg`, alt: 'Express', size: 'size-s' },
+                { src: `${base}/postgresql.svg`, alt: 'PostgreSQL', size: 'size-s' },
+                { src: `${base}/mysql.svg`, alt: 'MySQL', size: 'size-s' },
+                { src: `${base}/sqlite.svg`, alt: 'SQLite', size: 'size-s' },
+                { src: `${base}/angular.svg`, alt: 'Angular', size: 'size-s' },
+                { src: `${base}/vue.svg`, alt: 'Vue', size: 'size-s' },
+                { src: `${base}/svelte.svg`, alt: 'Svelte', size: 'size-s' },
+				{ src: `${base}/next.svg`, alt: 'Next.js', size: 'size-s' },
+				{ src: `${base}/docker.svg`, alt: 'Docker', size: 'size-m' },
+				{ src: `${base}/kubernetes.svg`, alt: 'Kubernetes', size: 'size-s' },
+				{ src: `${base}/graphql.svg`, alt: 'GraphQL', size: 'size-s' },
+				{ src: `${base}/json.svg`, alt: 'JSON', size: 'size-s' },
+				{ src: `${base}/yaml.svg`, alt: 'YAML', size: 'size-s' },
+				{ src: `${base}/markdown.svg`, alt: 'Markdown', size: 'size-s' },
+				{ src: `${base}/tailwindcss.svg`, alt: 'Tailwind CSS', size: 'size-s' },
+				{ src: `${base}/bootstrap.svg`, alt: 'Bootstrap', size: 'size-s' },
+				{ src: `${base}/django.svg`, alt: 'Django', size: 'size-s' },
+				{ src: `${base}/flask.svg`, alt: 'Flask', size: 'size-s' },
+				{ src: `${base}/deno.svg`, alt: 'Deno', size: 'size-s' },
+				{ src: `${base}/electron.svg`, alt: 'Electron', size: 'size-s' },
+				{ src: `${base}/ember.svg`, alt: 'Ember', size: 'size-s' },
+				{ src: `${base}/nuxt.svg`, alt: 'Nuxt', size: 'size-s' },
+				{ src: `${base}/vite.svg`, alt: 'Vite', size: 'size-s' },
+				{ src: `${base}/webpack.svg`, alt: 'Webpack', size: 'size-s' },
+				{ src: `${base}/rollup.svg`, alt: 'Rollup', size: 'size-s' },
+				{ src: `${base}/babel.svg`, alt: 'Babel', size: 'size-s' },
+				{ src: `${base}/eslint.svg`, alt: 'ESLint', size: 'size-s' },
+				{ src: `${base}/prettier.svg`, alt: 'Prettier', size: 'size-s' },
+				{ src: `${base}/jest.svg`, alt: 'Jest', size: 'size-s' },
+				{ src: `${base}/cypress.svg`, alt: 'Cypress', size: 'size-s' },
+				{ src: `${base}/redux.svg`, alt: 'Redux', size: 'size-s' },
+				{ src: `${base}/rxjs.svg`, alt: 'RxJS', size: 'size-s' },
+				{ src: `${base}/prisma.svg`, alt: 'Prisma', size: 'size-s' },
+				{ src: `${base}/mongodb.svg`, alt: 'MongoDB', size: 'size-s' },
+				{ src: `${base}/redis.svg`, alt: 'Redis', size: 'size-s' },
+				{ src: `${base}/firebase.svg`, alt: 'Firebase', size: 'size-s' },
+				{ src: `${base}/nginx.svg`, alt: 'Nginx', size: 'size-s' },
+				{ src: `${base}/terraform.svg`, alt: 'Terraform', size: 'size-s' },
+				{ src: `${base}/ansible.svg`, alt: 'Ansible', size: 'size-s' },
+				{ src: `${base}/cmake.svg`, alt: 'CMake', size: 'size-s' },
+				{ src: `${base}/makefile.svg`, alt: 'Makefile', size: 'size-s' },
+				{ src: `${base}/astro.svg`, alt: 'Astro', size: 'size-s' },
+				{ src: `${base}/bun.svg`, alt: 'Bun', size: 'size-s' },
+				{ src: `${base}/npm.svg`, alt: 'npm', size: 'size-s' },
+				{ src: `${base}/yarn.svg`, alt: 'Yarn', size: 'size-s' },
+				{ src: `${base}/pnpm.svg`, alt: 'pnpm', size: 'size-s' },
+				{ src: `${base}/toml.svg`, alt: 'TOML', size: 'size-s' },
+				{ src: `${base}/xml.svg`, alt: 'XML', size: 'size-s' }
+            ];
+
+            const vw = () => bg.clientWidth;
+            const vh = () => bg.clientHeight;
+
+            // clear existing
+            container.innerHTML = '';
+
+            function sizePxFor(cls) {
+                if (cls.includes('size-l')) return window.innerWidth <= 768 ? 40 : 56;
+                if (cls.includes('size-m')) return window.innerWidth <= 768 ? 30 : 40;
+                return window.innerWidth <= 768 ? 22 : 28;
+            }
+
+            function rectsIntersect(a, b) {
+                return !(a.maxX < b.minX || a.minX > b.maxX || a.maxY < b.minY || a.minY > b.maxY);
+            }
+
+			function computeLayout(sizes) {
+				const placements = [];
+				const taken = [];
+				const margin = 14;
+				const W = vw();
+				const H = vh();
+				// Centered region (cluster around middle of hero)
+				const regionScaleX = 0.72;
+				const regionScaleY = 0.62;
+				const regionW = Math.max(200, Math.min(W - 2 * margin, W * regionScaleX));
+				const regionH = Math.max(180, Math.min(H - 2 * margin, H * regionScaleY));
+				const minXBound = Math.max(margin, (W - regionW) / 2);
+				const minYBound = Math.max(margin, (H - regionH) / 2);
+				const maxXBound = W - minXBound;
+				const maxYBound = H - minYBound;
+
+				sizes.forEach((w) => {
+					const h = w; // icons are square-ish
+					let chosen = null;
+					for (let attempt = 0; attempt < 800; attempt++) {
+						const rangeW = Math.max(0, regionW - w - 2 * margin);
+						const rangeH = Math.max(0, regionH - h - 2 * margin);
+						let x = minXBound + margin + Math.random() * rangeW;
+						let y = minYBound + margin + Math.random() * rangeH;
+
+						const availRight = Math.max(0, (minXBound + regionW) - (x + w) - margin);
+						const availUp = Math.max(0, (y - minYBound) - margin);
+						const dx = Math.min(30, Math.max(6, availRight)) * Math.random();
+						const dy = Math.min(24, Math.max(4, availUp)) * Math.random();
+						const minX = Math.min(x, x + dx) - margin;
+						const maxX = Math.max(x + w, x + w + dx) + margin;
+						const minY = Math.min(y, y - dy) - margin;
+						const maxY = Math.max(y + h, y + h - dy) + margin;
+						const rect = { minX, minY, maxX, maxY };
+
+						let overlaps = false;
+						for (let i = 0; i < taken.length; i++) {
+							if (rectsIntersect(rect, taken[i])) { overlaps = true; break; }
+						}
+						if (!overlaps) {
+							chosen = { x, y, dx, dy };
+							taken.push(rect);
+							break;
+						}
+					}
+					if (!chosen) {
+						// Last resort: place without motion, just avoid overlap within centered region
+						for (let attempt = 0; attempt < 800; attempt++) {
+							const rangeW = Math.max(0, regionW - w - 2 * margin);
+							const rangeH = Math.max(0, regionH - h - 2 * margin);
+							let x = minXBound + margin + Math.random() * rangeW;
+							let y = minYBound + margin + Math.random() * rangeH;
+							const rect = { minX: x - margin, minY: y - margin, maxX: x + w + margin, maxY: y + h + margin };
+							let overlaps = false;
+							for (let i = 0; i < taken.length; i++) {
+								if (rectsIntersect(rect, taken[i])) { overlaps = true; break; }
+							}
+							if (!overlaps) { chosen = { x, y, dx: 0, dy: 0 }; taken.push(rect); break; }
+						}
+					}
+					if (!chosen) {
+						// Absolute fallback: drop one at exact center
+						const cx = minXBound + (regionW - w) / 2;
+						const cy = minYBound + (regionH - h) / 2;
+						chosen = { x: cx, y: cy, dx: 0, dy: 0 };
+						const rect = { minX: cx - margin, minY: cy - margin, maxX: cx + w + margin, maxY: cy + h + margin };
+						taken.push(rect);
+					}
+					placements.push(chosen);
+				});
+				return placements;
+			}
+
+            function renderIcons() {
+                container.innerHTML = '';
+                const sizes = icons.map(icon => sizePxFor(`floating-logo ${icon.size}`));
+                const placements = computeLayout(sizes);
+                icons.forEach((icon, idx) => {
+                    const el = document.createElement('img');
+                    el.className = `floating-logo ${icon.size}`;
+                    el.src = icon.src;
+                    el.alt = icon.alt;
+                    el.decoding = 'async';
+                    el.loading = 'lazy';
+                    el.referrerPolicy = 'no-referrer';
+                    el.addEventListener('error', () => { el.remove(); });
+
+                    const p = placements[idx];
+                    const rot = 6 + Math.random() * 12;
+                    const dur = 16 + Math.random() * 10;
+                    el.style.setProperty('--x', `${p.x}px`);
+                    el.style.setProperty('--y', `${p.y}px`);
+                    el.style.setProperty('--dx', `${p.dx}px`);
+                    el.style.setProperty('--dy', `${p.dy}px`);
+                    el.style.setProperty('--rot', `${rot}deg`);
+                    el.style.setProperty('--dur', `${dur}s`);
+                    container.appendChild(el);
+                });
+            }
+
+            renderIcons();
+
+            // Re-layout on resize
+            const onResize = () => { renderIcons(); };
+            window.addEventListener('resize', onResize);
+        });
+    </script>
+    <script>
+        // Timeline Loading Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create main timeline for page load animations
+            const mainTimeline = anime.timeline({
+                easing: 'easeOutExpo',
+                duration: 1000
+            });
+
+            // Hero section timeline
+            mainTimeline
+                .add({
+                    targets: '.hero-title .greeting',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    duration: 800
+                })
+                .add({
+                    targets: '.hero-title .name',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    duration: 800
+                }, '-=600')
+                .add({
+                    targets: '.hero-title .title',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    duration: 800
+                }, '-=400')
+                .add({
+                    targets: '.hero-description',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600
+                }, '-=400')
+                .add({
+                    targets: '.hero-buttons .btn',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 600,
+                    delay: anime.stagger(100)
+                }, '-=200');
+
+            // Skills cards animation on scroll
+            const skillsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: '.skill-card',
+                            opacity: [0, 1],
+                            translateY: [50, 0],
+                            duration: 800,
+                            delay: anime.stagger(200),
+                            easing: 'easeOutExpo'
+                        });
+                        skillsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const skillsSection = document.querySelector('#skills');
+            if (skillsSection) {
+                skillsObserver.observe(skillsSection);
+            }
+
+            // Projects animation on scroll
+            const projectsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: '.project-card',
+                            opacity: [0, 1],
+                            scale: [0.8, 1],
+                            duration: 800,
+                            delay: anime.stagger(150),
+                            easing: 'easeOutBack'
+                        });
+                        projectsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const projectsSection = document.querySelector('#projects');
+            if (projectsSection) {
+                projectsObserver.observe(projectsSection);
+            }
+
+            // Achievements animation
+            const achievementsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: '.achievement-card',
+                            opacity: [0, 1],
+                            translateX: [-100, 0],
+                            duration: 800,
+                            delay: anime.stagger(200),
+                            easing: 'easeOutExpo'
+                        });
+                        achievementsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const achievementsSection = document.querySelector('#achievements');
+            if (achievementsSection) {
+                achievementsObserver.observe(achievementsSection);
+            }
+
+            // Interests cards animation
+            const interestsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: '.interest-card',
+                            opacity: [0, 1],
+                            rotate: [-10, 0],
+                            scale: [0.5, 1],
+                            duration: 800,
+                            delay: anime.stagger(100),
+                            easing: 'easeOutElastic'
+                        });
+                        interestsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const interestsSection = document.querySelector('#interests');
+            if (interestsSection) {
+                interestsObserver.observe(interestsSection);
+            }
+
+            // Navigation animation
+            anime({
+                targets: '.navbar',
+                opacity: [0, 1],
+                translateY: [-100, 0],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+
+            // Particles animation enhancement
+            anime({
+                targets: '.particle-container',
+                opacity: [0, 1],
+                duration: 2000,
+                easing: 'linear'
+            });
+
+            // Section titles animation
+            const titleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                        titleObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.section-title').forEach(title => {
+                titleObserver.observe(title);
+            });
+
+            // Add hover animations for interactive elements
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    anime({
+                        targets: this,
+                        scale: 1.05,
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                btn.addEventListener('mouseleave', function() {
+                    anime({
+                        targets: this,
+                        scale: 1,
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // Project card hover animations
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    anime({
+                        targets: this,
+                        translateY: -10,
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    anime({
+                        targets: this,
+                        translateY: 0,
+                        boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const animatedEls = document.querySelectorAll('[data-animate], [data-animate_seq]');
+        animatedEls.forEach(el => {
+          // Support sequential cascade via data-animate_seq
+          if (el.hasAttribute('data-animate_seq')) {
+            const seqAttr = el.getAttribute('data-animate_seq');
+            const animationNames = seqAttr.split(',').map(n => n.trim()).filter(n => n.length > 0);
+            const baseDelayAttr = el.getAttribute('data-animate-delay');
+            const baseDelay = baseDelayAttr ? parseInt(baseDelayAttr, 10) : 0;
+            const cascadeGap = 140; // ms between steps
+            const clearAnimateClasses = () => {
+              Array.from(el.classList).forEach(cls => { if (cls.startsWith('animate__')) el.classList.remove(cls); });
+            };
+            animationNames.forEach((name, idx) => {
+              const t = baseDelay + idx * cascadeGap;
+              setTimeout(() => {
+                clearAnimateClasses();
+                el.classList.add('animate__animated');
+                el.classList.add(`animate__${name}`);
+              }, t);
+            });
+          } else {
+            // Simple single-animation per element
+            const animName = el.getAttribute('data-animate') || 'fadeInUp';
+            const delayAttr = el.getAttribute('data-animate-delay');
+            const delay = delayAttr ? parseInt(delayAttr, 10) : 0;
+            const run = () => {
+              el.classList.add('animate__animated');
+              el.classList.add(`animate__${animName}`);
+              if (!isNaN(delay) && delay > 0) {
+                el.style.animationDelay = `${delay}ms`;
+              }
+            };
+            if (delay > 0) {
+              setTimeout(run, delay);
+            } else {
+              run();
+            }
+          }
+        });
+      });
+    </script>
+</body>
+</html>

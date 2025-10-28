@@ -1,0 +1,34 @@
+name: Deploy Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Prepare docs (static site)
+        run: |
+          set -e
+          mkdir -p docs
+          # Copy core static site assets if present
+          for item in index.html game-launcher.html game-preview-info.html warhammer-details.html; do
+            if [ -e "$item" ]; then cp -f "$item" docs/; fi
+          done
+          # Copy static assets and app scripts if present
+          for d in styles.css script.js assets warhammer40k_game2; do
+            if [ -e "$d" ]; then cp -R "$d" docs/; fi
+          done
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+
+

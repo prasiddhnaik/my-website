@@ -50,3 +50,6 @@ data.view.sqlite
 # Misc
 website-screenshot.png
 assets/warhammer40k_game.zip
+
+# mdBook build output
+mini-rust-playground/book/

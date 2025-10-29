@@ -49,3 +49,29 @@ pre { border-radius: 8px; border: 1px solid rgba(158,203,255,0.18); }
 
 /* Headings */
 h1, h2, h3 { color: var(--text) !important; }
+
+/* Minimal IDE mode: hide chrome and non-essential text */
+.page h1:first-of-type,
+.page h2,
+.page p:first-of-type { display: none !important; }
+
+/* Tight container like a small IDE */
+.playground { 
+  max-width: 820px; 
+  margin: 16px auto; 
+  border: 1px solid rgba(158,203,255,0.18); 
+  border-radius: 10px; 
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.playground .editor { 
+  font-size: 14px; 
+  line-height: 1.45; 
+}
+.playground .buttons button { 
+  background: var(--navy); 
+  color: var(--text); 
+  border-color: rgba(158,203,255,0.25);
+}
+.playground .buttons button:hover { 
+  background: var(--navy-deep); 
+}

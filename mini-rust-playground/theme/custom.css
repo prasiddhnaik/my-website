@@ -1,39 +1,51 @@
 :root {
-  --primary-color: #0066cc;
-  --primary-light: #3385d6;
-  --bg-primary: #0a0e27;
-  --bg-secondary: #1a1f3a;
-  --text-primary: #ffffff;
-  --text-secondary: #b8c5d1;
+  /* Force a navy palette */
+  --navy: #0a1f44;
+  --navy-deep: #081a38;
+  --navy-code: #0b254f;
+  --link: #9ecbff;
+  --link-hover: #cfe6ff;
+  --text: #ffffff;
+  --muted: #b8c5d1;
 }
 
-html, body {
-  background: var(--bg-primary) !important;
-  color: var(--text-primary) !important;
+html, body, .book, .content, .page { 
+  background: var(--navy) !important; 
+  color: var(--text) !important; 
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
+/* Remove search, hamburger (three lines), header chrome, sidebar, footer */
+.menu-bar, .menu-toggle, .searchbar, .sidebar, .nav-chapters, .page-footer, footer { 
+  display: none !important; 
+}
+
+/* Expand content to full width when sidebar is hidden */
+.page-wrapper, .content, .page { 
+  margin-left: 0 !important; 
+  max-width: 900px; 
+  margin-right: auto; 
+  margin-left: auto; 
+  padding: 16px; 
+}
+
 /* Links */
-a { color: var(--primary-light); }
-a:hover { color: var(--primary-color); }
+a { color: var(--link) !important; }
+a:hover { color: var(--link-hover) !important; }
 
-/* Sidebar and content containers */
-.navbar, .menu, .sidebar {
-  background: var(--bg-secondary) !important;
-}
-.content, .page { 
-  background: transparent !important;
-}
-
-/* Code blocks */
+/* Code blocks and inline code */
 pre, code { 
-  background: #0f1333 !important; 
-  color: var(--text-secondary) !important; 
+  background: var(--navy-code) !important; 
+  color: var(--muted) !important; 
 }
-pre { border-radius: 8px; border: 1px solid rgba(0,102,204,0.2); }
+pre { border-radius: 8px; border: 1px solid rgba(158,203,255,0.18); }
 
-/* Playground editor height cap */
-.playground .editor { max-height: 260px; overflow: auto; }
+/* Playground editor: tighter, small IDE feel */
+.playground .editor { max-height: 220px; overflow: auto; }
+.playground .buttons, .playground .result { 
+  background: var(--navy-deep) !important; 
+  border-color: rgba(158,203,255,0.18) !important; 
+}
 
-/* Headings match gradient look (subtle) */
-h1, h2, h3 { color: var(--text-primary); }
+/* Headings */
+h1, h2, h3 { color: var(--text) !important; }

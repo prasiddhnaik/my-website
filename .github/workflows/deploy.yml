@@ -12,6 +12,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Set up Rust (for mdBook)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo bin
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            cargo-${{ runner.os }}-
+
+      - name: Install mdBook
+        run: |
+          if ! command -v mdbook >/dev/null 2>&1; then
+            cargo install mdbook --locked
+          fi
+
       - name: Prepare docs (static site)
         run: |
           set -e
@@ -24,6 +44,15 @@ jobs:
           for d in styles.css script.js assets warhammer40k_game2; do
             if [ -e "$d" ]; then cp -R "$d" docs/; fi
           done
+
+      - name: Build mdBook and copy under /playground
+        run: |
+          set -e
+          if [ -d mini-rust-playground ]; then
+            mdbook build mini-rust-playground
+            mkdir -p docs/playground
+            cp -R mini-rust-playground/book/* docs/playground/
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

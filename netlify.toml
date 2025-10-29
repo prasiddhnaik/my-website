@@ -1,0 +1,13 @@
+[build]
+  command = "bash netlify-build.sh"
+  publish = "docs"
+
+[build.environment]
+  # Speed up curl and tooling
+  RUST_LOG = "info"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  # optional, safe to include; does nothing if not installed
+
+
